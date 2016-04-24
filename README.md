@@ -1,1 +1,1 @@
-# Discover-Malawi-Project-Documentation
+# Discover Malawi Project Documentation
