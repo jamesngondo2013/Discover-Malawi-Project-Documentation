@@ -1,0 +1,39 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kd}{var} \PYG{n+nx}{myApp} \PYG{o}{=} \PYG{n+nx}{angular}\PYG{p}{.}\PYG{n+nx}{module}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}myApp\PYGZsq{}}\PYG{p}{,} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}ngRoute\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}firebase\PYGZsq{}}\PYG{p}{])}
+\PYG{p}{.}\PYG{n+nx}{constant}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}FIREBASE\PYGZus{}URL\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}https://discovermalawi.firebaseio.com/\PYGZsq{}}\PYG{p}{);}
+
+\PYG{n+nx}{myApp}\PYG{p}{.}\PYG{n+nx}{run}\PYG{p}{([}\PYG{l+s+s1}{\PYGZsq{}\PYGZdl{}rootScope\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}\PYGZdl{}location\PYGZsq{}}\PYG{p}{,}
+\PYG{k+kd}{function}\PYG{p}{(}\PYG{n+nx}{\PYGZdl{}rootScope}\PYG{p}{,} \PYG{n+nx}{\PYGZdl{}location}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{\PYGZdl{}rootScope}\PYG{p}{.}\PYG{n+nx}{\PYGZdl{}on}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZdl{}routeChangeError\PYGZsq{}}\PYG{p}{,}
+		\PYG{k+kd}{function}\PYG{p}{(}\PYG{n+nx}{event}\PYG{p}{,} \PYG{n+nx}{next}\PYG{p}{,} \PYG{n+nx}{previous}\PYG{p}{,} \PYG{n+nx}{error}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{k}{if} \PYG{p}{(}\PYG{n+nx}{error}\PYG{o}{==}\PYG{l+s+s1}{\PYGZsq{}AUTH\PYGZus{}REQUIRED\PYGZsq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{n+nx}{\PYGZdl{}rootScope}\PYG{p}{.}\PYG{n+nx}{message} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}Sorry, you must}
+\PYG{l+s+s1}{			log in to access that page\PYGZsq{}}\PYG{p}{;}
+			\PYG{n+nx}{\PYGZdl{}location}\PYG{p}{.}\PYG{n+nx}{path}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}/login\PYGZsq{}}\PYG{p}{);}
+		\PYG{p}{\PYGZcb{}} \PYG{c+c1}{// AUTH REQUIRED}
+	\PYG{p}{\PYGZcb{});} \PYG{c+c1}{//event info}
+\PYG{p}{\PYGZcb{}]);} \PYG{c+c1}{//run}
+\PYG{c+c1}{//=============Routes===========}
+ \PYG{n+nx}{when}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}/register\PYGZsq{}}\PYG{p}{,} \PYG{p}{\PYGZob{}}
+	 \PYG{n+nx}{templateUrl}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}views/register.html\PYGZsq{}}\PYG{p}{,}
+	 \PYG{n+nx}{controller}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}RegistrationController\PYGZsq{}}\PYG{p}{,}
+	 \PYG{n+nx}{resolve}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+		 \PYG{n+nx}{currentAuth}\PYG{o}{:} \PYG{k+kd}{function}\PYG{p}{(}\PYG{n+nx}{Authentication}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			\PYG{k}{return} \PYG{n+nx}{Authentication}\PYG{p}{.}\PYG{n+nx}{requireAuth}\PYG{p}{();}
+		 \PYG{p}{\PYGZcb{}} \PYG{c+c1}{//current Auth}
+	 \PYG{p}{\PYGZcb{}} \PYG{c+c1}{//resolve}
+ \PYG{p}{\PYGZcb{}).}
+  \PYG{n+nx}{when}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}/about\PYGZsq{}}\PYG{p}{,} \PYG{p}{\PYGZob{}}
+	  \PYG{n+nx}{templateUrl}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}views/about.html\PYGZsq{}}\PYG{p}{,}
+	  \PYG{n+nx}{controller}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}AboutController\PYGZsq{}}\PYG{p}{,}
+	  \PYG{n+nx}{resolve}\PYG{o}{:} \PYG{p}{\PYGZob{}}
+		  \PYG{n+nx}{currentAuth}\PYG{o}{:} \PYG{k+kd}{function}\PYG{p}{(}\PYG{n+nx}{Authentication}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+			  \PYG{k}{return} \PYG{n+nx}{Authentication}\PYG{p}{.}\PYG{n+nx}{requireAuth}\PYG{p}{();}
+		  \PYG{p}{\PYGZcb{}} \PYG{c+c1}{//current Auth}
+	  \PYG{p}{\PYGZcb{}} \PYG{c+c1}{//resolve}
+  \PYG{p}{\PYGZcb{}).}
+
+  \PYG{n+nx}{otherwise}\PYG{p}{(\PYGZob{}}
+  \PYG{n+nx}{redirectTo}\PYG{o}{:} \PYG{l+s+s1}{\PYGZsq{}/login\PYGZsq{}}
+  \PYG{p}{\PYGZcb{});}
+\end{Verbatim}

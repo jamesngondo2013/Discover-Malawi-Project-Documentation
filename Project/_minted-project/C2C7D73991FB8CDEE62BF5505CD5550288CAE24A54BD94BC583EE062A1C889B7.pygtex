@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+  \PYG{k+kd}{var} \PYG{n+nx}{app} \PYG{o}{=} \PYG{n+nx}{angular}\PYG{p}{.}\PYG{n+nx}{module}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}starter\PYGZsq{}}\PYG{p}{,} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}ionic\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}ngCordova\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}firebase\PYGZsq{}}\PYG{p}{,}
+  \PYG{l+s+s1}{\PYGZsq{}ngResource\PYGZsq{}}\PYG{p}{,}\PYG{l+s+s1}{\PYGZsq{}ngStorage\PYGZsq{}}\PYG{p}{]);}
+  \PYG{n+nx}{app}\PYG{p}{.}\PYG{n+nx}{config}\PYG{p}{(}\PYG{k+kd}{function}\PYG{p}{(}\PYG{n+nx}{\PYGZdl{}ionicConfigProvider}\PYG{p}{)\PYGZob{}}
+	  \PYG{n+nx}{\PYGZdl{}ionicConfigProvider}\PYG{p}{.}\PYG{n+nx}{tabs}\PYG{p}{.}\PYG{n+nx}{position}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}buttom\PYGZsq{}}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{})}
+  \PYG{k+kd}{var} \PYG{n+nx}{ref} \PYG{o}{=} \PYG{k}{new} \PYG{n+nx}{Firebase}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}https://discovermalawi.firebaseio.com/\PYGZdq{}}\PYG{p}{);}
+
+  \PYG{n+nx}{app}\PYG{p}{.}\PYG{n+nx}{factory}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}NoteStore\PYGZsq{}}\PYG{p}{,} \PYG{k+kd}{function}\PYG{p}{(}\PYG{n+nx}{\PYGZdl{}firebaseArray}\PYG{p}{,} \PYG{n+nx}{\PYGZdl{}firebaseObject}\PYG{p}{)\PYGZob{}}
+	  \PYG{n+nx}{getAllParks}\PYG{o}{:} \PYG{k+kd}{function}\PYG{p}{()\PYGZob{}}  \PYG{c+c1}{//get all parks}
+		 \PYG{k}{return} \PYG{n+nx}{\PYGZdl{}firebaseArray}\PYG{p}{(}\PYG{n+nx}{ref}\PYG{p}{.}\PYG{n+nx}{child}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}park\PYGZsq{}}\PYG{p}{));}
+	  \PYG{p}{\PYGZcb{},}
+	  \PYG{n+nx}{getPark}\PYG{o}{:} \PYG{k+kd}{function}\PYG{p}{(}\PYG{n+nx}{parkId}\PYG{p}{)\PYGZob{}}  \PYG{c+c1}{//get individual park}
+		  \PYG{k}{return} \PYG{n+nx}{\PYGZdl{}firebaseObject}\PYG{p}{(}\PYG{n+nx}{ref}\PYG{p}{.}\PYG{n+nx}{child}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}park\PYGZsq{}}\PYG{p}{).}\PYG{n+nx}{child}\PYG{p}{(}\PYG{n+nx}{parkId}\PYG{p}{));}
+	  \PYG{p}{\PYGZcb{},}
+	  \PYG{n+nx}{getAllLakes}\PYG{o}{:} \PYG{k+kd}{function}\PYG{p}{()\PYGZob{}} \PYG{c+c1}{// get all lakes}
+	  \PYG{n+nx}{lakes} \PYG{o}{=} \PYG{n+nx}{\PYGZdl{}firebaseArray}\PYG{p}{(}\PYG{n+nx}{ref}\PYG{p}{.}\PYG{n+nx}{child}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}lake\PYGZsq{}}\PYG{p}{));}
+		  \PYG{k}{return} \PYG{n+nx}{lakes}\PYG{p}{;}
+	  \PYG{p}{\PYGZcb{},}
+	  \PYG{n+nx}{getLake}\PYG{o}{:} \PYG{k+kd}{function}\PYG{p}{(}\PYG{n+nx}{lakeId}\PYG{p}{)\PYGZob{}} \PYG{c+c1}{//get individual lake activites}
+		  \PYG{k}{return} \PYG{n+nx}{\PYGZdl{}firebaseObject}\PYG{p}{(}\PYG{n+nx}{ref}\PYG{p}{.}\PYG{n+nx}{child}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}lake\PYGZsq{}}\PYG{p}{).}\PYG{n+nx}{child}\PYG{p}{(}\PYG{n+nx}{lakeId}\PYG{p}{));}
+	  \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{});}
+\end{Verbatim}

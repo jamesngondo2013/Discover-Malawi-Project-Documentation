@@ -1,0 +1,46 @@
+\begin{thebibliography}{10}
+
+\bibitem{Tourism}
+``{Tourism} global tourism statistics 2015.''
+  \url{http://www.statista.com/topics/962/global-tourism/}.
+\newblock Accessed: 2016-03-20.
+
+\bibitem{Dawidowicz}
+M.~Goossens, F.~Mittelbach, and A.~Samarin, {\em Paula 2010 Literature Reviews
+  Made Easy}.
+\newblock Reading, Massachusetts: Addison-Wesley, 1993.
+
+\bibitem{NoSQL}
+``{NoSQL} rise to nosql databases.''
+  \url{http://www.slideshare.net/JAMESNGONDO/the-rise-of-nosql-databases?qid=53ef63bd-e679-47e2-9397-d41f69f203af&v=&b=&from_search=3}.
+\newblock Accessed: 2016-04-15.
+
+\bibitem{NodeJS}
+Node, ``Nodejs.''
+  \url{"http://www.tutorialspoint.com/nodejs/nodejs_tutorial.pdf}.
+
+\bibitem{AngularJS}
+V.~Balasubramanee, ``{}twitter bootstrap and angularjs.''
+  \url{http://0-ieeexplore.ieee.org.library.gmit.ie/stamp/stamp.jsp?tp=&arnumber=6702640}.
+\newblock Accessed: 2016-04-08.
+
+\bibitem{Firebase}
+Firebase, ``{}angularfire and firebase.''
+  \url{https://www.firebase.com/docs/web/libraries/angular/}.
+
+\bibitem{FirebaseRealtime}
+Firebase, ``{}firebase realtime data.''
+  \url{https://www.firebase.com/features.html#features-database}.
+
+\bibitem{IonicFramework}
+Ionic, ``{}ionic framework.''
+  \url{http://ionicframework.com/docs/guide/preface.html}.
+\newblock Accessed: 2016-04-12.
+
+\bibitem{hosting24}
+J.~Ngondo. \url{www.technologywolves.com}.
+
+\bibitem{ImgSafe}
+I.~Safe, ``{} free online image storage.'' \url{https://imgsafe.org/}.
+
+\end{thebibliography}

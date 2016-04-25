@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nx}{app}\PYG{p}{.}\PYG{n+nx}{factory}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}NoteStore\PYGZsq{}}\PYG{p}{,} \PYG{k+kd}{function}\PYG{p}{(}\PYG{n+nx}{\PYGZdl{}firebaseArray}\PYG{p}{,} \PYG{n+nx}{\PYGZdl{}firebaseObject}\PYG{p}{)\PYGZob{}}
+	\PYG{c+c1}{//retrieve notes from local storage}
+	\PYG{k+kd}{var} \PYG{n+nx}{notes} \PYG{o}{=} \PYG{n+nx}{angular}\PYG{p}{.}\PYG{n+nx}{fromJson}\PYG{p}{(}\PYG{n+nb}{window}\PYG{p}{.}\PYG{n+nx}{localStorage}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}notes\PYGZsq{}}\PYG{p}{]} \PYG{o}{||}\PYG{l+s+s1}{\PYGZsq{}[]\PYGZsq{}}\PYG{p}{);}
+	\PYG{c+c1}{// store notes in local storage}
+	\PYG{k+kd}{function} \PYG{n+nx}{persist}\PYG{p}{()}
+	\PYG{p}{\PYGZob{}}
+		\PYG{n+nb}{window}\PYG{p}{.}\PYG{n+nx}{localStorage}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}notes\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n+nx}{angular}\PYG{p}{.}\PYG{n+nx}{toJson}\PYG{p}{(}\PYG{n+nx}{notes}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{});}
+\end{Verbatim}

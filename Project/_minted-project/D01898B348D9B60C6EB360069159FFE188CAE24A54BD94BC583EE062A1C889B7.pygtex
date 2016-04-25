@@ -1,0 +1,50 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kr}{public} \PYG{k+kr}{static} \PYG{k}{void} \PYG{n+nx}{discoverMalawiSignIn}\PYG{p}{()} \PYG{p}{\PYGZob{}}
+	\PYG{n+nx}{FirefoxDriver} \PYG{n+nx}{driver} \PYG{o}{=} \PYG{k}{new} \PYG{n+nx}{FirefoxDriver}\PYG{p}{();}
+	\PYG{n+nx}{driver}\PYG{p}{.}\PYG{n+nx}{get}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}http://www.technologywolves.com/\PYGZsh{}/login\PYGZdq{}}\PYG{p}{);}
+	\PYG{n+nx}{WebElement} \PYG{n+nx}{username} \PYG{o}{=} \PYG{n+nx}{driver}\PYG{p}{.}\PYG{n+nx}{findElement}\PYG{p}{(}\PYG{n+nx}{By}\PYG{p}{.}\PYG{n+nx}{name}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}email\PYGZdq{}}\PYG{p}{));}
+	\PYG{n+nx}{username}\PYG{p}{.}\PYG{n+nx}{sendKeys}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}jamesngondo2013@outlook.com\PYGZdq{}}\PYG{p}{);}
+	\PYG{n+nx}{WebElement} \PYG{n+nx}{button} \PYG{o}{=} \PYG{n+nx}{driver}\PYG{p}{.}\PYG{n+nx}{findElement}\PYG{p}{(}\PYG{n+nx}{By}\PYG{p}{.}\PYG{n+nx}{name}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}password\PYGZdq{}}\PYG{p}{));}
+	\PYG{n+nx}{button}\PYG{p}{.}\PYG{n+nx}{click}\PYG{p}{();}
+
+	\PYG{n+nx}{WebElement} \PYG{n+nx}{password} \PYG{o}{=} \PYG{p}{(}\PYG{k}{new} \PYG{n+nx}{WebDriverWait}\PYG{p}{(}\PYG{n+nx}{driver}\PYG{p}{,} \PYG{l+m+mi}{30}\PYG{p}{))}
+	\PYG{p}{.}\PYG{n+nx}{until}\PYG{p}{(}\PYG{n+nx}{ExpectedConditions}\PYG{p}{.}\PYG{n+nx}{presenceOfElementLocated}\PYG{p}{(}\PYG{n+nx}{By}\PYG{p}{.}\PYG{n+nx}{name}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}password\PYGZdq{}}\PYG{p}{)));}
+	\PYG{n+nx}{password}\PYG{p}{.}\PYG{n+nx}{sendKeys}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}g00304277\PYGZdq{}}\PYG{p}{);}
+
+	\PYG{n+nx}{WebElement} \PYG{n+nx}{btnLogin} \PYG{o}{=} \PYG{n+nx}{driver}\PYG{p}{.}\PYG{n+nx}{findElementByClassName}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}btn\PYGZdq{}}\PYG{p}{);}
+	\PYG{n+nx}{btnLogin}\PYG{p}{.}\PYG{n+nx}{click}\PYG{p}{();}
+
+	\PYG{n+nx}{driver}\PYG{p}{.}\PYG{n+nx}{manage}\PYG{p}{().}\PYG{n+nb}{window}\PYG{p}{().}\PYG{n+nx}{maximize}\PYG{p}{();}
+
+	\PYG{n+nx}{sleep}\PYG{p}{();}
+
+	\PYG{c+c1}{// click each tab}
+	\PYG{n+nx}{WebElement} \PYG{n+nx}{btn}\PYG{p}{;}
+	\PYG{n+nx}{WebDriverWait} \PYG{n+nx}{wdw} \PYG{o}{=} \PYG{k}{new} \PYG{n+nx}{WebDriverWait}\PYG{p}{(}\PYG{n+nx}{driver}\PYG{p}{,} \PYG{l+m+mi}{30}\PYG{p}{);}
+
+	\PYG{n+nx}{WebElement} \PYG{n+nx}{navBar} \PYG{o}{=} \PYG{n+nx}{wdw}\PYG{p}{.}\PYG{n+nx}{until}\PYG{p}{(}\PYG{n+nx}{ExpectedConditions}\PYG{p}{.}\PYG{n+nx}{presenceOfElementLocated}\PYG{p}{(}\PYG{n+nx}{By}\PYG{p}{.}\PYG{n+nx}{className}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}nav\PYGZdq{}}\PYG{p}{)));}
+	\PYG{n+nb}{String}\PYG{p}{[]} \PYG{n+nx}{allLinks} \PYG{o}{=} \PYG{n+nx}{navBar}\PYG{p}{.}\PYG{n+nx}{getText}\PYG{p}{().}\PYG{n+nx}{split}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}\PYGZbs{}n\PYGZdq{}}\PYG{p}{);}
+	\PYG{k}{for} \PYG{p}{(}\PYG{k+kr}{int} \PYG{n+nx}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nx}{i} \PYG{o}{\PYGZlt{}} \PYG{n+nx}{allLinks}\PYG{p}{.}\PYG{n+nx}{length}\PYG{p}{;} \PYG{n+nx}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{System}\PYG{p}{.}\PYG{n+nx}{out}\PYG{p}{.}\PYG{n+nx}{println}\PYG{p}{(}\PYG{n+nx}{i} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}: \PYGZdq{}} \PYG{o}{+} \PYG{n+nx}{allLinks}\PYG{p}{[}\PYG{n+nx}{i}\PYG{p}{]);}
+		\PYG{n+nx}{driver}\PYG{p}{.}\PYG{n+nx}{findElement}\PYG{p}{(}\PYG{n+nx}{By}\PYG{p}{.}\PYG{n+nx}{linkText}\PYG{p}{(}\PYG{n+nx}{allLinks}\PYG{p}{[}\PYG{n+nx}{i}\PYG{p}{])).}\PYG{n+nx}{click}\PYG{p}{();}
+		\PYG{n+nx}{sleep}\PYG{p}{();}
+	\PYG{p}{\PYGZcb{}}
+
+	\PYG{n+nx}{sleep}\PYG{p}{();}
+
+	\PYG{n+nx}{WebElement} \PYG{n+nx}{myDynamicElement} \PYG{o}{=} \PYG{p}{(}\PYG{k}{new} \PYG{n+nx}{WebDriverWait}\PYG{p}{(}\PYG{n+nx}{driver}\PYG{p}{,}
+	\PYG{l+m+mi}{30}\PYG{p}{)).}\PYG{n+nx}{until}\PYG{p}{(}\PYG{n+nx}{ExpectedConditions}\PYG{p}{.}\PYG{n+nx}{presenceOfElementLocated}\PYG{p}{(}\PYG{n+nx}{By}\PYG{p}{.}\PYG{n+nx}{linkText}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Logout\PYGZdq{}}\PYG{p}{)));}
+	\PYG{n+nx}{driver}\PYG{p}{.}\PYG{n+nx}{findElement}\PYG{p}{(}\PYG{n+nx}{By}\PYG{p}{.}\PYG{n+nx}{linkText}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Logout\PYGZdq{}}\PYG{p}{)).}\PYG{n+nx}{click}\PYG{p}{();}
+
+
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k+kr}{public} \PYG{k+kr}{static} \PYG{k}{void} \PYG{n+nx}{sleep}\PYG{p}{()}
+\PYG{p}{\PYGZob{}}
+	\PYG{k}{try} \PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{Thread}\PYG{p}{.}\PYG{n+nx}{sleep}\PYG{p}{(}\PYG{l+m+mi}{1000}\PYG{p}{);}
+	\PYG{p}{\PYGZcb{}} \PYG{k}{catch} \PYG{p}{(}\PYG{n+nx}{InterruptedException} \PYG{n+nx}{e}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+		\PYG{n+nx}{e}\PYG{p}{.}\PYG{n+nx}{printStackTrace}\PYG{p}{();}
+	\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
